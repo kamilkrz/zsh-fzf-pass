@@ -1,6 +1,6 @@
 function fuzzy-pass() {
   PASS_STR_VALID_DIR="${PASSWORD_STORE_DIR:-${HOME}/.password-store}"
-  PASSFILE=$(find -L $PASS_STR_VALID_DIR | sed "s|$PASS_STR_VALID_DIR||" | grep '.gpg' | sed 's/.gpg$//g' | fzf)
+  PASSFILE=$(find -L $PASS_STR_VALID_DIR | sed "s|$PASS_STR_VALID_DIR||" | grep '.gpg' | sed 's/.gpg$//g' | fzf --preview-window=":hidden" )
 
   [ -z "$PASSFILE" ] && return 0
 
